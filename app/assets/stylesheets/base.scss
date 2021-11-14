@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+@import './base/variable';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: $white;
+  color: $black;
+}
+
+@mixin container {
+  margin: auto;
+}
+
+@each $key, $value in $containers {
+  .container-#{$key} {
+    max-width: $value;
+    @include container();
+  }
+}

@@ -1,16 +1,17 @@
-<h1>Users#new</h1>
-
-<%= form_with(model: @user, url: users_path) do |f| %>
-  <%= render 'shared/error' %>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, :placeholder => "test@example.com", required: true %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password, :placeholder => "**********", required: true %>
-  </div>
-  <div>
-    <%= f.submit "Submit", disable_with: 'Submiting...' %>
-  </div>
-<% end %>
+<div class="container-xs">
+  <h1>Users#new</h1>
+  <%= form_with(model: @user, url: users_path) do |f| %>
+    <%= render 'shared/flash' %>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email, :placeholder => "test@example.com", required: true %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password, :placeholder => "**********", required: true %>
+    </div>
+    <div>
+      <%= f.submit "Submit", disable_with: 'Submiting...' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+$white: #fefefe;
+$black: #333;
+
+// flash
+$flash-colors: (
+  'success': #38a169,
+  'danger': #e53e3e,
+  'warning': #d69e2e
+);
+
+// containers
+$containers: (
+  'xs': 400px,
+  'sm': 600px,
+  'md': 960px
+);

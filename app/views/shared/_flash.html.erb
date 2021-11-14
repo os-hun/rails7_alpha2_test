@@ -1,0 +1,22 @@
+<% if flash.any? %>
+  <% flash.each do |message_type, messages| %>
+    <div class="flash flash-<%= message_type %>">
+      <div class="icon-box">
+        <%= render 'shared/icon', icon_type: message_type %>
+      </div>
+      <div class="messages-box">
+        <% if message_type == 'danger' %>
+          <nav>
+            <ul class="messages">
+              <% messages.each do |msg| %>
+                <li class="message"><%= msg %></li>
+              <% end %>
+            </ul>
+          </nav>
+        <% else %>
+          <span class="message"><%= messages %></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

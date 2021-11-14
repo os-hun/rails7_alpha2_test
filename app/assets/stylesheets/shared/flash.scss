@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+@import '../base/variable';
+
+@each $key, $value in $flash-colors {
+  .flash-#{$key} {
+    color: $value;
+    background: rgba($value, 0.2);
+  }
+}
+
+.flash {
+  box-sizing: border-box;
+  padding: 15px 20px;
+  border-radius: 7px;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
+
+  .icon-box {
+    margin-right: 10px;
+    display: flex;
+  }
+
+  .messages-box {
+    flex: 1;
+  }
+
+  .messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .message {
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  &-success,
+  &-warning {
+    align-items: center;
+
+    .icon-box {
+      align-items: center;
+    }
+  }
+}
