@@ -4,8 +4,8 @@
 
 @each $key, $value in $flash-colors {
   .flash-#{$key} {
-    color: $value;
-    background: rgba($value, 0.2);
+    color: $white;
+    background: $value;
   }
 }
 
@@ -14,13 +14,15 @@
   padding: 15px 20px;
   border-radius: 7px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   margin-bottom: 15px;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.05);
 
   .icon-box {
     margin-right: 10px;
     display: flex;
+    align-items: center;
   }
 
   .messages-box {
@@ -36,14 +38,5 @@
   .message {
     font-weight: 700;
     font-size: 14px;
-  }
-
-  &-success,
-  &-warning {
-    align-items: center;
-
-    .icon-box {
-      align-items: center;
-    }
   }
 }
