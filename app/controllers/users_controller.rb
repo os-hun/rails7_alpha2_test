@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user.username = SecureRandom.hex(10)
 
     if @user.save
+      flash[:success] = 'Welcome to Rails7Alpha2Test App!'
       redirect_to user_path(@user.username)
     else
       flash[:danger] = @user.errors.full_messages
