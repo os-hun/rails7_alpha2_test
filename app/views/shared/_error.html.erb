@@ -1,0 +1,16 @@
+<% if flash.any? %>
+  <div>
+    <div></div>
+    <div>
+      <nav>
+        <ul>
+          <% flash.each do |message_type, messages| %>
+            <% messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+<% end %>
