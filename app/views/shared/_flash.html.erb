@@ -1,17 +1,17 @@
 <% if flash.any? %>
-  <% flash.each do |message_type, messages| %>
+  <% flash.each do |message_type, message| %>
     <div class="flash flash-<%= message_type %>">
       <div class="icon-box">
         <%= render 'shared/icon', icon_type: message_type %>
       </div>
       <div class="messages-box">
-        <% if message_type == 'danger' %>
-          <span class="message">
-            <%= messages.join(', ') %>
-          </span>
-        <% else %>
-          <span class="message"><%= messages %></span>
-        <% end %>
+        <span class="message">
+          <% if message.instance_of?(Array) %>
+            <%= message.join(', ') %>
+          <% else %>
+            <%= message %>
+          <% end %>
+        </span>
       </div>
     </div>
   <% end %>

@@ -20,3 +20,14 @@ body {
     @include container();
   }
 }
+
+.debug_dump {
+  clear: both;
+  width: 100%;
+  margin-top: 45px;
+  box-sizing: border-box;
+  display: block;
+  padding: 20px;
+  background: #eee;
+  border-radius: 12px;
+}

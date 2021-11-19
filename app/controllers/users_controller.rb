@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  include AuthHelper
+
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_to_sign_up, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -10,8 +13,7 @@ class UsersController < ApplicationController
     @user.username = SecureRandom.hex(10)
 
     if @user.save
-      flash[:success] = 'Welcome to Rails7Alpha2Test App!'
-      redirect_to user_path(@user.username)
+      redirect_to user_path(@user.username), success: 'Welcome to Rails7Alpha2Test App!'
     else
       flash[:danger] = @user.errors.full_messages
       redirect_to sign_up_path
@@ -37,5 +39,9 @@ class UsersController < ApplicationController
 
     def set_params
       params.require(:user).permit(:name, :email, :password, :username)
+    end
+
+    def redirect_to_sign_up
+      redirect_to log_in_path unless is_current_user?(@user)
     end
 end
