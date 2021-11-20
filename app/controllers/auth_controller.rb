@@ -20,7 +20,6 @@ class AuthController < ApplicationController
   def destroy
     log_out if is_logged_in?
     flash[:success] = 'ログアウトしました。'
-    redirect_to log_in_path
   end
 
   private
